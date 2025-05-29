@@ -65,6 +65,8 @@ export const ${variables.componentName} = ({ size = 24, color = 'currentColor', 
 
 async function main() {
   await ensureOutDir();
+  const allIconNames: string[] = [];
+  const allComponentNames: string[] = [];
   for (const variant of VARIANTS) {
     const variantDir = path.join(ICONS_DIR, variant);
     if (!(await fs.pathExists(variantDir))) continue;
@@ -79,8 +81,62 @@ async function main() {
       const outPath = path.join(OUT_DIR, `${componentName}.tsx`);
       await fs.writeFile(outPath, tsxCode, "utf8");
       console.log(`Generated: ${outPath}`);
+      const kebabName = file.replace(/\.svg$/, "");
+      allIconNames.push(kebabName);
+      allComponentNames.push(componentName);
     }
   }
+
+  const indexPath = path.resolve(OUT_DIR, "../index.ts");
+  const indexContent =
+    allComponentNames
+      .map((name) => `export { ${name} } from './icons/${name}';`)
+      .join("\n") +
+    '\nexport { ExemIcon } from "./ExemIcon";\nexport type { ExemIconName } from "./types";\n';
+  await fs.writeFile(indexPath, indexContent, "utf8");
+  console.log(`Generated: ${indexPath}`);
+
+  const typesPath = path.resolve(OUT_DIR, "../types.ts");
+  const typesContent =
+    "export type ExemIconName =\n" +
+    allIconNames.map((name) => `  | '${name}'`).join("\n") +
+    ";\n";
+  await fs.writeFile(typesPath, typesContent, "utf8");
+  console.log(`Generated: ${typesPath}`);
+
+  const exemIconPath = path.resolve(OUT_DIR, "../ExemIcon.tsx");
+  const exemIconContent = `
+import * as React from 'react';
+import * as Icons from './index';
+import type { ExemIconName } from './types';
+
+export interface ExemIconProps {
+  name: ExemIconName;
+  variant: 'light' | 'medium' | 'bold' | 'filled';
+  size?: number;
+  color?: string;
+  [key: string]: any;
+}
+
+function toComponentName(name: string, variant: string) {
+  return (
+    name
+      .split('-')
+      .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+      .join('') +
+    variant.charAt(0).toUpperCase() + variant.slice(1)
+  );
+}
+
+export const ExemIcon: React.FC<ExemIconProps> = ({ name, variant, size = 24, color = 'currentColor', ...props }) => {
+  const componentName = toComponentName(name, variant);
+  const IconComponent = (Icons as any)[componentName];
+  if (!IconComponent) return null;
+  return <IconComponent size={size} color={color} {...props} />;
+};
+`;
+  await fs.writeFile(exemIconPath, exemIconContent, "utf8");
+  console.log(`Generated: ${exemIconPath}`);
 }
 
 main();

@@ -1,3 +1,5 @@
 node_modules
 
 packages/**/src/icons/*.tsx
+packages/**/src/*.tsx
+packages/**/src/*.ts
