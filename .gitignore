@@ -1,0 +1,6 @@
+node_modules
+dist
+
+packages/**/src/icons/*.tsx
+packages/**/src/*.tsx
+packages/**/src/*.ts
