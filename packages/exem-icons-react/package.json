@@ -1,0 +1,21 @@
+{
+  "name": "exem-icons-react",
+  "description": "A Icon library for Exem React applications",
+  "version": "0.0.1",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "author": "Park Seunghun <tmdgns1126@ex-em.com>",
+  "organization": "Exem",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
