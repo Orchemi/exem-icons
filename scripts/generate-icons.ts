@@ -92,7 +92,7 @@ async function main() {
     allComponentNames
       .map((name) => `export { ${name} } from './icons/${name}';`)
       .join("\n") +
-    '\nexport { ExemIcon } from "./ExemIcon";\nexport type { ExemIconName } from "./types";\n';
+    '\nexport { ExemIcon } from "./ExemIcon";\nexport type { ExemIconName, ExemIconVariant } from "./types";\n';
   await fs.writeFile(indexPath, indexContent, "utf8");
   console.log(`Generated: ${indexPath}`);
 
@@ -100,7 +100,8 @@ async function main() {
   const typesContent =
     "export type ExemIconName =\n" +
     allIconNames.map((name) => `  | '${name}'`).join("\n") +
-    ";\n";
+    ";\n" +
+    '\nexport type ExemIconVariant =\n  | "light"\n  | "medium"\n  | "bold"\n  | "filled";\n';
   await fs.writeFile(typesPath, typesContent, "utf8");
   console.log(`Generated: ${typesPath}`);
 
@@ -108,17 +109,17 @@ async function main() {
   const exemIconContent = `
 import * as React from 'react';
 import * as Icons from './index';
-import type { ExemIconName } from './types';
+import type { ExemIconName, ExemIconVariant } from './types';
 
 export interface ExemIconProps {
   name: ExemIconName;
-  variant: 'light' | 'medium' | 'bold' | 'filled';
+  variant: ExemIconVariant;
   size?: number;
   color?: string;
   [key: string]: any;
 }
 
-function toComponentName(name: string, variant: string) {
+function toComponentName(name: string, variant: ExemIconVariant) {
   return (
     name
       .split('-')
