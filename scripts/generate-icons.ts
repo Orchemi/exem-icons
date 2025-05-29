@@ -26,7 +26,11 @@ function getComponentName(file: string, variant: string) {
   );
 }
 
-async function generateReactComponent(svgCode: string, componentName: string) {
+async function generateReactComponent(
+  svgCode: string,
+  componentName: string,
+  variant: string
+) {
   return transform.sync(
     svgCode,
     {
@@ -50,7 +54,7 @@ export const ${variables.componentName} = ({ size = 24, color = 'currentColor', 
     {
       width: size,
       height: size,
-      fill: 'none',
+      ${variant === "filled" ? "fill: color" : "fill: 'none'"},
       stroke: color,
       ...props,
     }
@@ -77,7 +81,11 @@ async function main() {
       const svgPath = path.join(variantDir, file);
       const svgCode = await fs.readFile(svgPath, "utf8");
       const componentName = getComponentName(file, variant);
-      const tsxCode = await generateReactComponent(svgCode, componentName);
+      const tsxCode = await generateReactComponent(
+        svgCode,
+        componentName,
+        variant
+      );
       const outPath = path.join(OUT_DIR, `${componentName}.tsx`);
       await fs.writeFile(outPath, tsxCode, "utf8");
       console.log(`Generated: ${outPath}`);
