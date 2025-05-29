@@ -1,7 +1,8 @@
 {
   "scripts": {
     "build": "pnpm build:icons",
-    "build:icons": "npx tsx scripts/generate-icons.ts"
+    "build:icons": "npx tsx scripts/generate-icons.ts",
+    "exem-icons-react": "pnpm --filter exem-icons-react"
   },
   "dependencies": {
     "@svgr/core": "^8.1.0",
