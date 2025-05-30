@@ -1,7 +1,7 @@
 {
   "name": "exem-icons-react",
   "description": "A Icon library for Exem React applications",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "license": "ISC",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,5 +20,27 @@
   },
   "scripts": {
     "build": "tsc"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./light": {
+      "import": "./dist/icons/light/index.js",
+      "types": "./dist/icons/light/index.d.ts"
+    },
+    "./medium": {
+      "import": "./dist/icons/medium/index.js",
+      "types": "./dist/icons/medium/index.d.ts"
+    },
+    "./bold": {
+      "import": "./dist/icons/bold/index.js",
+      "types": "./dist/icons/bold/index.d.ts"
+    },
+    "./filled": {
+      "import": "./dist/icons/filled/index.js",
+      "types": "./dist/icons/filled/index.d.ts"
+    }
   }
 }
