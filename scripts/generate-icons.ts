@@ -8,11 +8,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const ICONS_DIR = path.resolve(__dirname, "../icons");
-const OUT_DIR = path.resolve(
-  __dirname,
-  "../packages/exem-icons-react/src/icons"
-);
-const VARIANTS = ["light", "medium", "bold", "filled"];
+const OUT_DIR = path.resolve(__dirname, "../packages/react-icons/src/icons");
+const VARIANTS = ["light", "regular", "bold", "filled"];
 
 async function ensureOutDirs() {
   // 각 variant별 폴더 생성 (src/icons 하위)
@@ -149,7 +146,7 @@ async function main() {
     "export type ExemIconName =\n" +
     allIconNames.map((name) => `  | '${name}'`).join("\n") +
     ";\n" +
-    '\nexport type ExemIconVariant =\n  | "light"\n  | "medium"\n  | "bold"\n  | "filled";\n';
+    '\nexport type ExemIconVariant =\n  | "light"\n  | "regular"\n  | "bold"\n  | "filled";\n';
   await fs.writeFile(typesPath, typesContent, "utf8");
   console.log(`Generated: ${typesPath}`);
 
@@ -161,7 +158,7 @@ import type { ExemIconName, ExemIconVariant } from './types';
 
 // 모든 variant별 아이콘을 정적으로 import (SSR 호환)
 import * as LightIcons from './icons/light/index';
-import * as MediumIcons from './icons/medium/index';
+import * as RegularIcons from './icons/regular/index';
 import * as BoldIcons from './icons/bold/index';
 import * as FilledIcons from './icons/filled/index';
 
@@ -183,7 +180,7 @@ function toComponentName(name: string) {
 // variant별 아이콘 맵핑
 const iconMaps = {
   light: LightIcons,
-  medium: MediumIcons,
+  regular: RegularIcons,
   bold: BoldIcons,
   filled: FilledIcons,
 } as const;

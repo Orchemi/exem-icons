@@ -1,7 +1,7 @@
 {
-  "name": "exem-icons-react",
-  "description": "A Icon library for Exem React applications",
-  "version": "0.1.0",
+  "name": "@exem/react-icons",
+  "description": "A icon library for Exem react applications",
+  "version": "0.2.0",
   "license": "ISC",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,9 +30,9 @@
       "import": "./dist/icons/light/index.js",
       "types": "./dist/icons/light/index.d.ts"
     },
-    "./medium": {
-      "import": "./dist/icons/medium/index.js",
-      "types": "./dist/icons/medium/index.d.ts"
+    "./regular": {
+      "import": "./dist/icons/regular/index.js",
+      "types": "./dist/icons/regular/index.d.ts"
     },
     "./bold": {
       "import": "./dist/icons/bold/index.js",
