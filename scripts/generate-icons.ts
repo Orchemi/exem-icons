@@ -26,14 +26,22 @@ function getComponentName(file: string, variant: string) {
   );
 }
 
+// SVG 전처리
+function preprocessSvg(svgCode: string) {
+  let processed = svgCode.replace(/black/g, "color");
+
+  return processed;
+}
+
 async function generateReactComponent(
   svgCode: string,
   componentName: string,
   variant: string
 ) {
   const isFilled = variant === "filled";
+  const processedSvg = preprocessSvg(svgCode);
   return transform.sync(
-    svgCode,
+    processedSvg,
     {
       icon: true,
       typescript: true,
