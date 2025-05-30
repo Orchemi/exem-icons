@@ -1,11 +1,20 @@
 # @exem/react-icons
 
-A comprehensive and lightweight icon library for React applications, featuring **4 variants** (light, regular, bold, filled) with **tree-shaking optimization** and **SSR support**.
+A comprehensive and lightweight icon library for React applications. Featuring **4 stroke weight variants** (light, regular, bold, filled) with **tree-shaking optimization** and **SSR support**.
 
 [![npm version](https://badge.fury.io/js/@exem%2Freact-icons.svg)](https://www.npmjs.com/package/@exem/react-icons)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![Tree Shaking](https://img.shields.io/badge/Tree%20Shaking-✅-green.svg)](#tree-shaking)
 [![SSR](https://img.shields.io/badge/SSR-✅-green.svg)](#ssr-support)
+
+<br />
+
+## 🌐 Internationalization
+
+This README is available in:
+
+- [한국어](./README.ko.md)
+- English
 
 <br />
 
@@ -54,13 +63,15 @@ const MyComponent = () => {
 };
 ```
 
+<br />
+
 #### Props
 
-| Property   | Type                      | Default          | Description                  |
-| ---------- | ------------------------- | ---------------- | ---------------------------- |
-| `size`     | `number`                  | `24`             | Width and height of the icon |
-| `color`    | `string`                  | `'currentColor'` | Color of the icon            |
-| `...props` | `SVGProps<SVGSVGElement>` | -                | All standard SVG props       |
+| Property   | Type                      | Default        | Description                  |
+| ---------- | ------------------------- | -------------- | ---------------------------- |
+| `size`     | `number`                  | `24`           | Width and height of the icon |
+| `color`    | `string`                  | `currentColor` | Color of the icon            |
+| `...props` | `SVGProps<SVGSVGElement>` | -              | All standard SVG props       |
 
 <br />
 
@@ -123,7 +134,7 @@ const DynamicComponent = () => {
 
 ## 🎨 Icon Variants
 
-Choose the perfect weight for your design:
+Choose the perfect weight for your design.
 
 ```tsx
 import { Heart } from "@exem/react-icons/light"; // Light stroke
@@ -143,7 +154,7 @@ import { Heart } from "@exem/react-icons/filled"; // Filled
 
 ## 📝 TypeScript Support
 
-Full TypeScript support with auto-completion:
+Full TypeScript support with auto-completion.
 
 ```tsx
 import type {
@@ -167,7 +178,7 @@ const variant: ExemIconVariant = "filled";
 
 ## 🌳 Tree Shaking
 
-This library is optimized for tree-shaking. Import only what you need:
+This library is optimized for tree-shaking. Import only what you need.
 
 ```tsx
 // ✅ Good: Only imports ArrowUp from filled variant
@@ -209,7 +220,7 @@ import { Home, Search, User } from "@exem/react-icons/regular";
 
 // ✅ Use consistent variant throughout your app
 const icons = {
-  home: () => <Home size={20} />,
+  home: () => <Home size={20} color="red" />,
   search: () => <Search size={20} />,
   user: () => <User size={20} />,
 };
