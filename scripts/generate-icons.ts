@@ -8,7 +8,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const ICONS_DIR = path.resolve(__dirname, "../icons");
-const OUT_DIR = path.resolve(__dirname, "../packages/react-icons/src/icons");
+const OUT_DIR = path.resolve(
+  __dirname,
+  "../packages/exem-icons-react/src/icons"
+);
 const VARIANTS = ["light", "regular", "bold", "filled"];
 
 async function ensureOutDirs() {

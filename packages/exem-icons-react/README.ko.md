@@ -1,8 +1,8 @@
-# @exem/react-icons
+# exem-icons-react
 
 React 애플리케이션용 포괄적인 아이콘 라이브러리입니다. **4가지 굵기 스타일**(light, regular, bold, filled)을 제공하며, **트리 셰이킹 최적화** 및 **SSR 지원**을 갖췄습니다.
 
-[![npm version](https://badge.fury.io/js/@exem%2Freact-icons.svg)](https://www.npmjs.com/package/@exem/react-icons)
+[![npm version](https://badge.fury.io/js/@exem%2Fexem-icons-react.svg)](https://www.npmjs.com/package/exem-icons-react)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![Tree Shaking](https://img.shields.io/badge/Tree%20Shaking-✅-green.svg)](#tree-shaking)
 [![SSR](https://img.shields.io/badge/SSR-✅-green.svg)](#ssr-support)
@@ -30,15 +30,15 @@ _모든 아이콘 및 디자인의 저작권은 [Exem](https://www.ex-em.com/)�
 ## 🚀 설치
 
 ```bash
-npm install @exem/react-icons
+npm install exem-icons-react
 ```
 
 ```bash
-yarn add @exem/react-icons
+yarn add exem-icons-react
 ```
 
 ```bash
-pnpm install @exem/react-icons
+pnpm install exem-icons-react
 ```
 
 <br />
@@ -50,8 +50,8 @@ pnpm install @exem/react-icons
 **최적의 트리 셰이킹**과 번들 크기 최소화를 위해 개별 아이콘을 import 하세요.
 
 ```tsx
-import { ArrowUp, ChevronDown, Search } from "@exem/react-icons/filled";
-import { Home, Settings } from "@exem/react-icons/light";
+import { ArrowUp, ChevronDown, Search } from "exem-icons-react/filled";
+import { Home, Settings } from "exem-icons-react/light";
 
 const MyComponent = () => {
   return (
@@ -91,7 +91,7 @@ import {
   ExemIcon,
   type ExemIconName,
   type ExemIconVariant,
-} from "@exem/react-icons";
+} from "exem-icons-react";
 import { useState } from "react";
 
 const DynamicComponent = () => {
@@ -137,10 +137,10 @@ const DynamicComponent = () => {
 디자인 목적에 따라 적절한 굵기를 선택하세요.
 
 ```tsx
-import { Heart } from "@exem/react-icons/light"; // 얇은 선
-import { Heart } from "@exem/react-icons/regular"; // 기본 굵기
-import { Heart } from "@exem/react-icons/bold"; // 굵은 선
-import { Heart } from "@exem/react-icons/filled"; // 채워진 형태
+import { Heart } from "exem-icons-react/light"; // 얇은 선
+import { Heart } from "exem-icons-react/regular"; // 기본 굵기
+import { Heart } from "exem-icons-react/bold"; // 굵은 선
+import { Heart } from "exem-icons-react/filled"; // 채워진 형태
 ```
 
 | 스타일    | 용도                            | 시각적 굵기 |
@@ -161,7 +161,7 @@ import type {
   ExemIconName,
   ExemIconVariant,
   ExemIconProps,
-} from "@exem/react-icons";
+} from "exem-icons-react";
 
 const iconList: ExemIconName[] = [
   "arrow-up",
@@ -180,10 +180,10 @@ const variant: ExemIconVariant = "filled";
 
 ```tsx
 // ✅ 권장: 필요한 아이콘만 개별 import
-import { ArrowUp } from "@exem/react-icons/filled";
+import { ArrowUp } from "exem-icons-react/filled";
 
 // ❌ 비권장: 모든 아이콘 포함으로 번들 크기 증가
-import { ExemIcon } from "@exem/react-icons";
+import { ExemIcon } from "exem-icons-react";
 ```
 
 <br />
@@ -193,8 +193,8 @@ import { ExemIcon } from "@exem/react-icons";
 서버 사이드 렌더링(SSR)을 완벽하게 지원합니다.
 
 ```tsx
-import { ArrowUp } from "@exem/react-icons/filled";
-import { ExemIcon } from "@exem/react-icons";
+import { ArrowUp } from "exem-icons-react/filled";
+import { ExemIcon } from "exem-icons-react";
 
 const ServerComponent = () => (
   <div>
@@ -211,7 +211,7 @@ const ServerComponent = () => (
 ### 최적의 성능을 위한 사용 예
 
 ```tsx
-import { Home, Search, User } from "@exem/react-icons/regular";
+import { Home, Search, User } from "exem-icons-react/regular";
 
 const icons = {
   home: () => <Home size={20} color="red" />,

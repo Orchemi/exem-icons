@@ -1,8 +1,8 @@
-# @exem/react-icons
+# exem-icons-react
 
 A comprehensive and lightweight icon library for React applications. Featuring **4 stroke weight variants** (light, regular, bold, filled) with **tree-shaking optimization** and **SSR support**.
 
-[![npm version](https://badge.fury.io/js/@exem%2Freact-icons.svg)](https://www.npmjs.com/package/@exem/react-icons)
+[![npm version](https://badge.fury.io/js/@exem%2Fexem-icons-react.svg)](https://www.npmjs.com/package/exem-icons-react)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![Tree Shaking](https://img.shields.io/badge/Tree%20Shaking-✅-green.svg)](#tree-shaking)
 [![SSR](https://img.shields.io/badge/SSR-✅-green.svg)](#ssr-support)
@@ -30,15 +30,15 @@ _All icons and designs are copyrighted by [Exem](https://www.ex-em.com/)._
 ## 🚀 Installation
 
 ```bash
-npm install @exem/react-icons
+npm install exem-icons-react
 ```
 
 ```bash
-yarn add @exem/react-icons
+yarn add exem-icons-react
 ```
 
 ```bash
-pnpm install @exem/react-icons
+pnpm install exem-icons-react
 ```
 
 <br />
@@ -50,8 +50,8 @@ pnpm install @exem/react-icons
 Import specific icons for **optimal tree-shaking** and bundle size.
 
 ```tsx
-import { ArrowUp, ChevronDown, Search } from "@exem/react-icons/filled";
-import { Home, Settings } from "@exem/react-icons/light";
+import { ArrowUp, ChevronDown, Search } from "exem-icons-react/filled";
+import { Home, Settings } from "exem-icons-react/light";
 
 const MyComponent = () => {
   return (
@@ -93,7 +93,7 @@ import {
   ExemIcon,
   type ExemIconName,
   type ExemIconVariant,
-} from "@exem/react-icons";
+} from "exem-icons-react";
 import { useState } from "react";
 
 const DynamicComponent = () => {
@@ -137,10 +137,10 @@ const DynamicComponent = () => {
 Choose the perfect weight for your design.
 
 ```tsx
-import { Heart } from "@exem/react-icons/light"; // Light stroke
-import { Heart } from "@exem/react-icons/regular"; // Regular stroke
-import { Heart } from "@exem/react-icons/bold"; // Bold stroke
-import { Heart } from "@exem/react-icons/filled"; // Filled
+import { Heart } from "exem-icons-react/light"; // Light stroke
+import { Heart } from "exem-icons-react/regular"; // Regular stroke
+import { Heart } from "exem-icons-react/bold"; // Bold stroke
+import { Heart } from "exem-icons-react/filled"; // Filled
 ```
 
 | Variant   | Use Case                        | Visual Weight |
@@ -161,7 +161,7 @@ import type {
   ExemIconName, // Union of all available icon names
   ExemIconVariant, // 'light' | 'regular' | 'bold' | 'filled'
   ExemIconProps, // Props for ExemIcon component
-} from "@exem/react-icons";
+} from "exem-icons-react";
 
 // Get all available icon names
 const iconList: ExemIconName[] = [
@@ -182,10 +182,10 @@ This library is optimized for tree-shaking. Import only what you need.
 
 ```tsx
 // ✅ Good: Only imports ArrowUp from filled variant
-import { ArrowUp } from "@exem/react-icons/filled";
+import { ArrowUp } from "exem-icons-react/filled";
 
 // ❌ Avoid: Imports all icons (larger bundle)
-import { ExemIcon } from "@exem/react-icons";
+import { ExemIcon } from "exem-icons-react";
 ```
 
 <br />
@@ -196,8 +196,8 @@ Fully compatible with server-side rendering:
 
 ```tsx
 // ✅ Works in Next.js, Remix, Gatsby, etc.
-import { ArrowUp } from "@exem/react-icons/filled";
-import { ExemIcon } from "@exem/react-icons";
+import { ArrowUp } from "exem-icons-react/filled";
+import { ExemIcon } from "exem-icons-react";
 
 // No hydration mismatches
 const ServerComponent = () => (
@@ -216,7 +216,7 @@ const ServerComponent = () => (
 
 ```tsx
 // ✅ Import specific icons for best tree-shaking
-import { Home, Search, User } from "@exem/react-icons/regular";
+import { Home, Search, User } from "exem-icons-react/regular";
 
 // ✅ Use consistent variant throughout your app
 const icons = {

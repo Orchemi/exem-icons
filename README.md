@@ -48,11 +48,11 @@ Choose your preferred framework and get started immediately.
 
 ### 📦 Available Packages
 
-| Framework | Package / Docs                                | Status             |
-| --------- | --------------------------------------------- | ------------------ |
-| **React** | [`@exem/react-icons`](./packages/react-icons) | ✅ **Ready**       |
-| **Vue 2** | `@exem/vue2-icons`                            | 🚧 **Coming Soon** |
-| **Vue 3** | `@exem/vue3-icons`                            | 🚧 **Coming Soon** |
+| Framework | Package / Docs                                    | Status             |
+| --------- | ------------------------------------------------- | ------------------ |
+| **React** | [`exem-icons-react`](./packages/exem-icons-react) | ✅ **Ready**       |
+| **Vue 2** | `exem-icons-vue2`                                 | 🚧 **Coming Soon** |
+| **Vue 3** | `exem-icons-vue3`                                 | 🚧 **Coming Soon** |
 
 <br />
 
