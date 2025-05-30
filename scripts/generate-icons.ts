@@ -31,6 +31,7 @@ async function generateReactComponent(
   componentName: string,
   variant: string
 ) {
+  const isFilled = variant === "filled";
   return transform.sync(
     svgCode,
     {
@@ -39,6 +40,10 @@ async function generateReactComponent(
       jsxRuntime: "automatic",
       prettier: true,
       plugins: ["@svgr/plugin-jsx"],
+      replaceAttrValues: {
+        fill: isFilled ? "color" : "none",
+        stroke: "color",
+      },
       template: (variables, { tpl }) => {
         return tpl`
 import * as React from 'react';
@@ -54,7 +59,7 @@ export const ${variables.componentName} = ({ size = 24, color = 'currentColor', 
     {
       width: size,
       height: size,
-      ${variant === "filled" ? "fill: color" : "fill: 'none'"},
+      ${isFilled ? "fill: color" : "fill: 'none'"},
       stroke: color,
       ...props,
     }
