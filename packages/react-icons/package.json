@@ -2,7 +2,7 @@
   "name": "@exem/react-icons",
   "description": "A icon library for Exem react applications",
   "version": "0.2.0",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "dist/index.js",
